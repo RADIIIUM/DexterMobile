@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DexterMobile.Autorization">
+    <ContentPage.Content>
+        <StackLayout x:Name="Fon" >
+            <StackLayout.Background>
+                <LinearGradientBrush>
+                    <GradientStop Offset="0.3" Color="#422D52" />
+                    <GradientStop Offset="0.7" Color="#754790" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+            <Frame x:Name="Title" BackgroundColor="#a100c9" Padding="24" CornerRadius="0">
+            <Label x:Name="TitleLab" Text="Авторизация" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Entry x:Name ="Login" Placeholder="Логин"  Margin="30,30,30,0" />
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="Pass" IsPassword="False" Placeholder="Пароль" WidthRequest="290"  Margin="30,0,0,0"  />
+                <Button x:Name="P1" Text="П" WidthRequest="50" />
+            </StackLayout>
+
+            <Button  x:Name="AutButton" Margin="30,30,30,0" HeightRequest="100" Text="Авторизация" FontSize="20" Clicked="AutButton_Clicked" />
+        <Button  x:Name="RegButton" Margin="30,30,30,0" HeightRequest="50" Text="Регистрация" FontSize="20" Clicked="RegButton_Clicked"  />
+
+
+    </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
