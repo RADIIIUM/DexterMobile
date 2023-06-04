@@ -24,41 +24,20 @@ namespace DexterMobile
             }
         }
 
-        private async void Computers_Clicked(object sender, EventArgs e)
+        private async void Messanger_Clicked(object sender, EventArgs e)
         {
-            Initial.NameOfCategoryOfProduct = "Computers";
-            await Navigation.PushAsync(new Goods());
-
+            await Navigation.PushAsync(new MessangerMenu());
         }
 
-        private async void Notebook_Clicked(object sender, EventArgs e)
+        private async void Users_Clicked(object sender, EventArgs e)
         {
-            Initial.NameOfCategoryOfProduct = "Notebook";
-            await Navigation.PushAsync(new Goods());
+            await Navigation.PushAsync(new UsersMenu());
         }
 
-        private async void Acsesuari_Clicked(object sender, EventArgs e)
+        private async void UserProfileBtn_Clicked(object sender, EventArgs e)
         {
-            Initial.NameOfCategoryOfProduct = "Accessory";
-            await Navigation.PushAsync(new Goods());
-
-        }
-
-        private async void Comblect_Clicked(object sender, EventArgs e)
-        {
-            Initial.NameOfCategoryOfProduct = "Complect";
-            await Navigation.PushAsync(new Goods());
-        }
-
-
-        private void UserProfileBtn_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Store_Clicked(object sender, EventArgs e)
-        {
-
+            if(Initial.OldLogin != null) Initial.login = Initial.OldLogin;
+            await Navigation.PushAsync(new Profile());
         }
     }
 }

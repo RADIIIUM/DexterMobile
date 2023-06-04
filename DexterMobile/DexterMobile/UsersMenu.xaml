@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DexterMobile.UsersMenu">
+    <StackLayout>
+        <StackLayout.Background>
+            <LinearGradientBrush>
+                <GradientStop Offset="0.3" Color="#422D52" />
+                <GradientStop Offset="0.7" Color="#754790" />
+            </LinearGradientBrush>
+        </StackLayout.Background>
+        <Label Text="Пользователи системы"
+               HorizontalTextAlignment="Center"
+               FontSize="20"
+               TextColor="White"
+               FontAttributes="Bold"
+               Margin="30"
+               />
+        <Entry Background="#2e2336"
+               Margin="20,0,20,0"
+               Placeholder="Поиск" x:Name="Search"  TextChanged="Search_TextChanged"/>
+        <Button Text="Открыть профиль" x:Name="Open" Clicked="Open_Clicked" />
+        <Label Text="____________________________________"
+               HorizontalTextAlignment="Center"
+               FontSize="20"
+               TextColor="White"
+               FontAttributes="Bold"
+               />
+        <ListView x:Name="ListUsers"/>
+
+    </StackLayout>
+</ContentPage>

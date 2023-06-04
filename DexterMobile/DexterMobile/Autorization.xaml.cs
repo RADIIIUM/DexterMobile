@@ -37,6 +37,16 @@ namespace DexterMobile
                         {
                             if (Pass.Text == client.PasswordOfUser)
                             {
+
+                                try
+                                {
+                                    string role = db.Roles.FirstOrDefault(x => x.LoginOfUsers == client.LoginOfUser).NameOfRole;
+                                    Initial.Role = role;
+                                }
+                                catch
+                                {
+
+                                }
                                 Initial.login = client.LoginOfUser;
                                 Stream ms = new MemoryStream(client.Avatar);
                                 Initial.UserAvatar = ImageSource.FromStream(() => ms);

@@ -56,6 +56,8 @@ namespace DexterMobile
                         if (login == null)
                         {
                             Users us = new Users(Login.Text, Pass.Text, Email.Text, this.avatar);
+                            Roles role = new Roles(Role.SelectedItem.ToString(), Login.Text);
+                            db.Roles.Add(role);
                             db.Users.Add(us);
                             DisplayAlert("Успешно!", "Пользователь зарегестрирован", "OK");
                             db.SaveChanges();

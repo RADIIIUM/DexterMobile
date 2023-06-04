@@ -11,7 +11,7 @@ namespace DexterMobile
 {
     public partial class App : Application
     {
-        public const string DbPath = "Dexter.db";
+        public const string DbPath = "DexterDB.db";
         public App()
         {
             InitializeComponent();
@@ -21,11 +21,11 @@ namespace DexterMobile
                 // Создаем бд, если она отсутствует
                 db.Database.EnsureCreated();
             }
-            MainPage = new NavigationPage(new Goods());
             MainPage = new NavigationPage(new Registration());
             MainPage = new NavigationPage(new MainPage());
-            MainPage = new NavigationPage(new Product());
-            MainPage = new NavigationPage(new CartPage());
+            MainPage = new NavigationPage(new Messanger());
+            MainPage = new NavigationPage(new MessangerMenu());
+            MainPage = new NavigationPage(new UsersMenu());
             MainPage = new NavigationPage(new Autorization());
         }
 

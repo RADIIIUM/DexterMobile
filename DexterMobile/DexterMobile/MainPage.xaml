@@ -15,15 +15,11 @@
                      Orientation="Horizontal">
                 <Image x:Name="UserAva" HeightRequest="50" WidthRequest="100"
                        />
-                    <Button WidthRequest="100" Text="Профиль"
+                <Button WidthRequest="100" Text="Профиль"
                     Margin="20,0,0,0"
                             x:Name="UserProfileBtn"
                             Clicked="UserProfileBtn_Clicked"/>
-            <Button WidthRequest="95" Text="Корзина"
-                    Margin="20,0,0,0"
-                    x:Name="Store"
-                    Clicked="Store_Clicked"/>
-        </StackLayout>
+            </StackLayout>
         <Grid HorizontalOptions="Center"
                                             HeightRequest="170"
                                             WidthRequest="400"
@@ -44,11 +40,11 @@
                             FontSize="40"
                             HorizontalTextAlignment="Center"
                             FontFamily="IMPACT"
-                    Text="Компьютеры">
+                    Text="Юзеры">
                 </Label>
                 <Button Text="Подробнее >"
-                                               x:Name="Computers"
-                                               Clicked="Computers_Clicked"
+                                               x:Name="Users"
+                                               Clicked="Users_Clicked"
                                                FontSize="16"
                                                TextColor="White"
                                                >
@@ -57,105 +53,39 @@
 
         </Grid>
 
-        <Grid HorizontalOptions="Center"
+            <Grid HorizontalOptions="Center"
                                             HeightRequest="170"
                                             WidthRequest="400"
                                             Margin="20"
                                             Padding="30"
                                             >
-            <Grid.Background>
-                <LinearGradientBrush>
-                    <GradientStop Offset="0.3" Color="#9e0992" />
-                    <GradientStop Offset="0.7" Color="#9e0940" />
-                </LinearGradientBrush>
-            </Grid.Background>
-            <StackLayout Orientation="Vertical">
+                <Grid.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Offset="0.3" Color="#9e0992" />
+                        <GradientStop Offset="0.7" Color="#9e0940" />
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <StackLayout Orientation="Vertical">
 
-                <Label
+                    <Label
                             TextColor="#eca6ff"
                             Margin="10"
                             FontSize="40"
                             HorizontalTextAlignment="Center"
                             FontFamily="IMPACT"
-                    Text="Ноутбуки">
-                </Label>
-                <Button Text="Подробнее >"
-                                               x:Name="Notebook"
-                                               Clicked="Notebook_Clicked"
+                    Text="Мэссенджер">
+                    </Label>
+                    <Button Text="Подробнее >"
+                                               x:Name="Messanger"
+                                               Clicked="Messanger_Clicked"
                                                FontSize="16"
                                                TextColor="White"
                                                >
-                </Button>
-            </StackLayout>
+                    </Button>
+                </StackLayout>
 
-        </Grid>
+            </Grid>
 
-        <Grid HorizontalOptions="Center"
-                                            HeightRequest="170"
-                                            WidthRequest="400"
-                                            Margin="20"
-                                            Padding="30"
-                                            >
-            <Grid.Background>
-                <LinearGradientBrush>
-                    <GradientStop Offset="0.3" Color="#9e0992" />
-                    <GradientStop Offset="0.7" Color="#9e0940" />
-                </LinearGradientBrush>
-            </Grid.Background>
-            <StackLayout Orientation="Vertical">
-
-                <Label
-                            TextColor="#eca6ff"
-                            Margin="10"
-                            FontSize="40"
-                            HorizontalTextAlignment="Center"
-                            FontFamily="IMPACT"
-                    Text="Аксессуары">
-                </Label>
-                <Button Text="Подробнее >"
-                                               x:Name="Acsesuari"
-                                               Clicked="Acsesuari_Clicked"
-                                               FontSize="16"
-                                               TextColor="White"
-                                               >
-                </Button>
-            </StackLayout>
-
-        </Grid>
-
-        <Grid HorizontalOptions="Center"
-                                            HeightRequest="170"
-                                            WidthRequest="400"
-                                            Margin="20"
-                                            Padding="30"
-                                            >
-            <Grid.Background>
-                <LinearGradientBrush>
-                    <GradientStop Offset="0.3" Color="#9e0992" />
-                    <GradientStop Offset="0.7" Color="#9e0940" />
-                </LinearGradientBrush>
-            </Grid.Background>
-            <StackLayout Orientation="Vertical">
-
-                <Label
-                            TextColor="#eca6ff"
-                            Margin="10"
-                            FontSize="33"
-                            HorizontalTextAlignment="Center"
-                            FontFamily="IMPACT"
-                    Text="Комплектующие">
-                </Label>
-                <Button Text="Подробнее >"
-                                               x:Name="Comblect"
-                                               Clicked="Comblect_Clicked"
-                                               FontSize="16"
-                                               TextColor="White"
-                                               >
-                </Button>
-            </StackLayout>
-
-        </Grid>
-
-    </StackLayout>
+        </StackLayout>
     </ScrollView>
 </ContentPage>

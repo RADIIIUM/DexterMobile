@@ -2,11 +2,72 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DexterMobile.Profile">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+    <ScrollView>
+        <StackLayout x:Name="Fon">
+            <StackLayout.Background>
+                <LinearGradientBrush>
+                    <GradientStop Offset="0.3" Color="#422D52" />
+                    <GradientStop Offset="0.7" Color="#754790" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+            <Label  Margin="20,0,0,0" FontSize="20" >
+                <Label.FormattedText>
+                    <FormattedString >
+                        <FormattedString.Spans>
+                            <Span Text="Аватар" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Image  x:Name="Ava" HeightRequest="100" WidthRequest="100"/>
+            <Button Text="Загрузить фото" x:Name="AvaBtn" Clicked="AvaBtn_Clicked"/>
+            <Button x:Name="AvaDonwloadBtn" Text="Добавить аватар" Clicked="AvaDonwloadBtn_Clicked"/>
+            <Entry x:Name ="Name" Placeholder="Имя пользователя"  Margin="30,30,30,0" />
+
+
+            <StackLayout x:Name="ChangePass">
+                <Label  Margin="20,0,0,0" FontSize="20" >
+                    <Label.FormattedText>
+                        <FormattedString >
+                            <FormattedString.Spans>
+                                <Span Text="Сменить пароль" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <StackLayout Orientation="Horizontal">
+                <Entry x:Name="Pass" IsPassword="False" Placeholder="Ввод пароля" WidthRequest="290"  Margin="30,0,0,0"  />
+                <Button x:Name="P1" Text="П" WidthRequest="50" Clicked="P1_Clicked"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="RepeatePass" IsPassword="False" Placeholder="Повторный ввод пароля" WidthRequest="290"  Margin="30,0,0,0"  />
+                <Button x:Name="P2" Text="П" WidthRequest="50" Clicked="P2_Clicked"/>
+            </StackLayout>
+                <Button  x:Name="ButtonChangePass" Margin="30,30,30,0" HeightRequest="50" Text="Сменить пароль" FontSize="20" Clicked="ButtonChangePass_Clicked" />
+            </StackLayout>
+            <Entry x:Name="Email" Placeholder="Email" WidthRequest="290"  Margin="30,0,30,0" Keyboard="Email" />
+
+
+            <Label  Margin="20,0,0,0" FontSize="20" TextDecorations="Underline" >
+                <Label.FormattedText>
+                    <FormattedString >
+                        <FormattedString.Spans>
+                            <Span Text="Роль пользователя" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Picker x:Name="Role" Margin="30,0,30,0"  />
+            <Label x:Name="RoleLabel" FontSize="20" Margin="20,0,0,0"/>
+
+
+            <Button  x:Name="ButtonSave" Margin="30,30,30,0" HeightRequest="100" Text="Сохранить изменения" FontSize="20" Clicked="ButtonSave_Clicked" />
+            <Button  x:Name="ButtonDelete" Margin="30,30,30,0" HeightRequest="100" Text="Удалить профиль" FontSize="20" Clicked="ButtonDelete_Clicked" />
+            <Button  x:Name="ButtonBan" Margin="30,30,30,0" HeightRequest="100" Text="Заблокировать профиль" FontSize="20" Clicked="ButtonBan_Clicked" />
+            <Button  x:Name="ButtonMessage" Margin="30,30,30,0" HeightRequest="100" Text="Написать сообщение" FontSize="20" Clicked="ButtonMessage_Clicked"  Background="Pink"/>
+            <Button  x:Name="ButtonReturn" Margin="30,30,30,0" HeightRequest="100" Text="Вернуться назад" FontSize="20" Clicked="ButtonReturn_Clicked"  Background="Red"/>
+
         </StackLayout>
-    </ContentPage.Content>
+    </ScrollView>
 </ContentPage>

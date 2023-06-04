@@ -10,8 +10,6 @@ namespace DesktopProject_V3.DataBaseClass
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Users()
         {
-            Orders_Users = new HashSet<Orders_Users>();
-            Privilege_Users = new HashSet<Privilege_Users>();
             Roles = new HashSet<Roles>();
         }
         public Users(string login, string pass, string email, byte[] avatar)
@@ -57,12 +55,6 @@ namespace DesktopProject_V3.DataBaseClass
         public string DescriptionOfUser { get; set; }
 
         public byte[] Avatar { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Orders_Users> Orders_Users { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Privilege_Users> Privilege_Users { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Roles> Roles { get; set; }

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DexterMobile.Messanger">
+    <StackLayout>
+        <StackLayout.Background>
+            <LinearGradientBrush>
+                <GradientStop Offset="0.3" Color="#422D52" />
+                <GradientStop Offset="0.7" Color="#754790" />
+            </LinearGradientBrush>
+        </StackLayout.Background>
+        <ScrollView>
+            <StackLayout HeightRequest="660" x:Name="MessagesStack">
+                <!--<StackLayout Background="Purple" Margin="30,10,30,0">
+                    <Label Text="Hello helololololololololo" TextColor="White" Padding="10"/>
+                </StackLayout>
+                <StackLayout Background="RoyalBlue" Margin="30,10,30,0">
+                    <Label Text="Hello helololololololololo" TextColor="White" Padding="10"/>
+                </StackLayout>-->
+            </StackLayout>
+        </ScrollView>
+        <StackLayout  Orientation="Horizontal" x:Name="Menu" Background="#422D52" HeightRequest="70">
+            <Entry Placeholder="Сообщение" x:Name="MSG" WidthRequest="300" Margin="30,0,0,0"/>
+            <Button  Text="O" WidthRequest="40" Margin="10,0,0,0" x:Name="Send" Clicked="Send_Clicked"/>
+            </StackLayout>
+    </StackLayout>
+</ContentPage>
