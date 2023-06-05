@@ -11,15 +11,16 @@ namespace DexterMobile
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
+
     public partial class UsersMenu : ContentPage
     {
         private string dbPath;
-        public ObservableCollection<string> NP { get; set; }
+        public ObservableCollection<US> NP { get; set; }
         public UsersMenu()
         {
             InitializeComponent();
             dbPath = DependencyService.Get<IPath>().GetDatabasePath(App.DbPath);
-            NP = new ObservableCollection<string>();
+            NP = new ObservableCollection<US>();
 
             using (Model1 db = new Model1(dbPath))
             {
@@ -27,7 +28,9 @@ namespace DexterMobile
                 {
                     if (user != null)
                     {
-                            NP.Add($"{user.LoginOfUser} - {user.NameOfUser}");
+                        Stream ms = new MemoryStream(user.Avatar);
+                        US u = new US(ImageSource.FromStream(() => ms), user.LoginOfUser, user.NameOfUser);
+                            NP.Add(u);
                     }
                 }
                 if(NP != null) ListUsers.ItemsSource = NP;
@@ -43,7 +46,8 @@ namespace DexterMobile
                 {
                     Initial.OldLogin = Initial.login;
                 }
-                Initial.login = ListUsers.SelectedItem.ToString().Split('-')[0].Trim();
+                US u = (US)ListUsers.SelectedItem;
+                Initial.login = u.Login;
                 Initial.ShowProfile = true;
                 await Navigation.PushModalAsync(new Profile());
             }
@@ -54,7 +58,7 @@ namespace DexterMobile
         {
             using(Model1 db = new Model1(dbPath))
             {
-                NP = new ObservableCollection<string>();
+                NP = new ObservableCollection<US>();
                 if (!string.IsNullOrEmpty(Search.Text))
                 {
                     var list = from t in db.Users
@@ -64,7 +68,9 @@ namespace DexterMobile
                     {
                         if (user != null)
                         {
-                            NP.Add($"{user.LoginOfUser} - {user.NameOfUser}");
+                            Stream ms = new MemoryStream(user.Avatar);
+                            US u = new US(ImageSource.FromStream(() => ms), user.LoginOfUser, user.NameOfUser);
+                            NP.Add(u);
                         }
                     }
                     if (NP != null) ListUsers.ItemsSource = NP;
@@ -75,7 +81,9 @@ namespace DexterMobile
                     {
                         if (user != null)
                         {
-                            NP.Add($"{user.LoginOfUser} - {user.NameOfUser}");
+                            Stream ms = new MemoryStream(user.Avatar);
+                            US u = new US(ImageSource.FromStream(() => ms), user.LoginOfUser, user.NameOfUser);
+                            NP.Add(u);
                         }
                     }
                     if (NP != null) ListUsers.ItemsSource = NP;

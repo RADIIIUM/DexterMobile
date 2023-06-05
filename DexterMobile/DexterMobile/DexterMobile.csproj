@@ -7,10 +7,14 @@
 
   <ItemGroup>
     <None Remove="Dexter.mdf" />
+    <None Remove="Images\Icons\AutoIco.png" />
+    <None Remove="Images\Icons\Emblema.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Dexter.mdf" />
+    <Content Include="Images\Icons\AutoIco.png" />
+    <Content Include="Images\Icons\Emblema.png" />
   </ItemGroup>
 
   <ItemGroup>

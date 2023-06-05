@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,48 +16,98 @@ namespace DexterMobile
 	public partial class MessangerMenu : ContentPage
 	{
         private string dbPath;
-        public ObservableCollection<string> NP { get; set; }
+        public ObservableCollection<US> NP { get; set; }
         public MessangerMenu ()
 		{
 			InitializeComponent ();
             dbPath = DependencyService.Get<IPath>().GetDatabasePath(App.DbPath);
-            NP = new ObservableCollection<string>();
+            NP = new ObservableCollection<US>();
 
             using (Model1 db = new Model1(dbPath))
             {
                 if(Initial.OldLogin != null) Initial.login = Initial.OldLogin;
-                var userlist = from t in db.Messages
-                           where (t.Sender == Initial.login || t.Recipient == Initial.login) && (t.Sender != t.Recipient)
-                           orderby t.Sender
-                           select t;
-                var list = userlist.Where(x => x.Recipient != Initial.login || x.Sender != Initial.login).Distinct().ToArray();
-                foreach (var user in list)
+                    foreach(var user in db.Messages)
+                    {
+                    if(user.Sender == Initial.login)
+                    {
+                        try
+                        {
+                            if (NP == null || NP.FirstOrDefault(x => x.Name == user.Recipient).Name != null) continue;
+                            else
+                            {
+                                Users us = db.Users.FirstOrDefault(x => x.LoginOfUser == user.Recipient);
+                                Stream ms = new MemoryStream(us.Avatar);
+                                US u = new US(ImageSource.FromStream(() => ms), us.LoginOfUser, us.NameOfUser);
+                                NP.Add(u);
+                                continue;
+                            }
+                        }
+                        catch
+                        {
+                            Users us = db.Users.FirstOrDefault(x => x.LoginOfUser == user.Recipient);
+                            Stream ms = new MemoryStream(us.Avatar);
+                            US u = new US(ImageSource.FromStream(() => ms), us.LoginOfUser, us.NameOfUser);
+                            NP.Add(u);
+                            continue;
+                        }
+                    }
+                    if(user.Recipient == Initial.login)
+                    {
+                        try
+                        {
+
+
+                            if (NP == null || NP.FirstOrDefault(x => x.Name == user.Sender).Name != null) continue;
+                            else
+                            {
+                                Users us = db.Users.FirstOrDefault(x => x.LoginOfUser == user.Sender);
+                                Stream ms = new MemoryStream(us.Avatar);
+                                US u = new US(ImageSource.FromStream(() => ms), us.LoginOfUser, us.NameOfUser);
+                                NP.Add(u);
+                                continue;
+                            }
+                        }
+                        catch
+                        {
+                            Users us = db.Users.FirstOrDefault(x => x.LoginOfUser == user.Sender);
+                            Stream ms = new MemoryStream(us.Avatar);
+                            US u = new US(ImageSource.FromStream(() => ms), us.LoginOfUser, us.NameOfUser);
+                            NP.Add(u);
+                            continue;
+                        }
+                    }
+                    }
+                var u1 = NP.FirstOrDefault(x => x.Login == Initial.login);
+                NP.Remove(u1);
+                if (NP != null)
                 {
-                        if (user.Recipient == Initial.login) {
-                            NP.Add($"{user.Sender}");
-                        }
-                        else {
-                            NP.Add($"{user.Recipient}");
-                        }
+                    var N = NP.Distinct();
+                    ListMessages.ItemsSource = N;
                 }
-                    if (NP != null) ListMessages.ItemsSource = NP;
             }
         }
 
         private async void Open_Clicked(object sender, EventArgs e)
         {
-            Initial.Receiver = ListMessages.SelectedItem.ToString().Trim();
+            US u = (US)ListMessages.SelectedItem;
+            Initial.Receiver = u.Login;
             await Navigation.PushAsync(new Messanger());
-        }
-
-        private void Search_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
 
         private void Remove_Clicked(object sender, EventArgs e)
         {
-
+            using(Model1 db = new Model1(dbPath))
+            {
+                US u = (US)ListMessages.SelectedItem;
+                Initial.Receiver = u.Login;
+                foreach (var message in db.Messages) 
+                {
+                    if (message.Sender == Initial.Receiver) db.Messages.Remove(message);
+                    if(message.Recipient == Initial.Receiver) db.Messages.Remove(message);
+                }
+                db.SaveChanges();
+                DisplayAlert("Переписка удалена", "Вы покинули переписку", "OK");
+            }
         }
     }
 }

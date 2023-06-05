@@ -30,5 +30,18 @@
                 </Setter>
             </Style>
         </ResourceDictionary>
+
+        <ResourceDictionary>
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="PlaceholderColor" Value="White"></Setter>
+            </Style>
+        </ResourceDictionary>
+
+        <ResourceDictionary>
+            <Style TargetType="Picker">
+                <Setter Property="TextColor" Value="White"></Setter>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

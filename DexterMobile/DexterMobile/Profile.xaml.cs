@@ -65,16 +65,16 @@ namespace DexterMobile
                         ChangePass.IsVisible = true;
                         ButtonDelete.IsVisible = true;
                         RoleLabel.IsVisible = true;
-                        ButtonReturn.IsVisible = false;
                         ButtonBan.IsVisible = false;
                         ButtonMessage.IsVisible = false;
+                        ButtonSave.IsVisible = true;
                     }
                     else
                     {
+                        ButtonSave.IsVisible = false;
                         AvaBtn.IsVisible = false;
                         AvaDonwloadBtn.IsVisible = false;
                         Name.IsReadOnly = true;
-                        ButtonReturn.IsVisible = true;
                         Email.IsReadOnly = true;
                         RoleLabel.IsVisible = true;
                         ChangePass.IsVisible = false;
@@ -261,12 +261,6 @@ namespace DexterMobile
                     DisplayAlert("Пароль изменен", "Ваш пароль сохранен", "OK");
                 }
             }
-        }
-
-        private async void ButtonReturn_Clicked(object sender, EventArgs e)
-        {
-            Initial.ShowProfile = false;
-            await Navigation.PopModalAsync();
         }
 
         private async void ButtonMessage_Clicked(object sender, EventArgs e)

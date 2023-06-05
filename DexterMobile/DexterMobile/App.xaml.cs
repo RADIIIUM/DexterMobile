@@ -7,6 +7,10 @@ using System.IO;
 using System.Reflection;
 using DesktopProject_V3.DataBaseClass;
 
+[assembly: ExportFont("MaterialIcons-Regular.ttf", Alias = "RegularMaterial")]
+[assembly: ExportFont("MaterialIconsTwoTone-Regular.otf", Alias = "TwoToneMaterial")]
+[assembly: ExportFont("MaterialIconsOutlined-Regular.otf", Alias = "OutlinedMaterial")]
+
 namespace DexterMobile
 {
     public partial class App : Application

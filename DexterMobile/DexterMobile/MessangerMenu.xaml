@@ -1,25 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DexterMobile.MessangerMenu">
-    <StackLayout>
+             x:Class="DexterMobile.MessangerMenu"  Visual="Material">
+    <ScrollView>
+        <StackLayout>
         <StackLayout.Background>
             <LinearGradientBrush>
                 <GradientStop Offset="0.3" Color="#422D52" />
                 <GradientStop Offset="0.7" Color="#754790" />
             </LinearGradientBrush>
         </StackLayout.Background>
-        <Label Text="Мэссенджер"
+            <Image HeightRequest="300" WidthRequest="300" Source="Emblema.png" />
+            <Label Text="Мэссенджер"
                HorizontalTextAlignment="Center"
                FontSize="20"
                TextColor="White"
                FontAttributes="Bold"
-               Margin="30"
+               Margin="30,10,30,0"
                />
-        <Entry Background="#2e2336"
-               Margin="20,0,20,0"
-               Placeholder="Поиск" x:Name="Search"  TextChanged="Search_TextChanged"/>
-        <Button Text="Открыть переписку" x:Name="Open" Clicked="Open_Clicked" />
+            <Button Text="Открыть переписку" x:Name="Open" Clicked="Open_Clicked" />
         <Button Text="Покинуть переписку" x:Name="Remove" Clicked="Remove_Clicked" />
         <Label Text="____________________________________"
                HorizontalTextAlignment="Center"
@@ -27,7 +26,17 @@
                TextColor="White"
                FontAttributes="Bold"
                />
-        <ListView x:Name="ListMessages"/>
+        <ListView x:Name="ListMessages" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell Text="{Binding Name}"
+                               Detail="{Binding Login}"
+                               ImageSource="{Binding img}"
+                               DetailColor="Transparent"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
     </StackLayout>
+    </ScrollView>
 </ContentPage>

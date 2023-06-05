@@ -18,10 +18,6 @@ namespace DexterMobile
             InitializeComponent();
             dbPath = DependencyService.Get<IPath>().GetDatabasePath(App.DbPath);
             UserAva.Source = Initial.UserAvatar;
-            using (Model1 db = new Model1(dbPath))
-            {
-
-            }
         }
 
         private async void Messanger_Clicked(object sender, EventArgs e)

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DexterMobile.Profile">
+             x:Class="DexterMobile.Profile"  Visual="Material">
     <ScrollView>
         <StackLayout x:Name="Fon">
             <StackLayout.Background>
@@ -66,7 +66,6 @@
             <Button  x:Name="ButtonDelete" Margin="30,30,30,0" HeightRequest="100" Text="Удалить профиль" FontSize="20" Clicked="ButtonDelete_Clicked" />
             <Button  x:Name="ButtonBan" Margin="30,30,30,0" HeightRequest="100" Text="Заблокировать профиль" FontSize="20" Clicked="ButtonBan_Clicked" />
             <Button  x:Name="ButtonMessage" Margin="30,30,30,0" HeightRequest="100" Text="Написать сообщение" FontSize="20" Clicked="ButtonMessage_Clicked"  Background="Pink"/>
-            <Button  x:Name="ButtonReturn" Margin="30,30,30,0" HeightRequest="100" Text="Вернуться назад" FontSize="20" Clicked="ButtonReturn_Clicked"  Background="Red"/>
 
         </StackLayout>
     </ScrollView>

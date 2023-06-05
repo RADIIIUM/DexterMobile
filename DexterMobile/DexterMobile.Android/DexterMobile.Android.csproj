@@ -57,6 +57,9 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Forms.Visual.Material">
+      <Version>5.0.0.2578</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.MySql.Data">
       <Version>1.0.1</Version>
     </PackageReference>
@@ -96,6 +99,12 @@
       <Project>{A1221B4A-F3C3-403D-B9A7-2783B7BE2933}</Project>
       <Name>DexterMobile</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Emblema.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\mobilebackground.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DexterMobile.MainPage">
+             x:Class="DexterMobile.MainPage"
+             Visual="Material">
     <ScrollView>
         <StackLayout>
         <StackLayout.Background>
@@ -15,7 +16,7 @@
                      Orientation="Horizontal">
                 <Image x:Name="UserAva" HeightRequest="50" WidthRequest="100"
                        />
-                <Button WidthRequest="100" Text="Профиль"
+                <Button WidthRequest="150" Text="Профиль"
                     Margin="20,0,0,0"
                             x:Name="UserProfileBtn"
                             Clicked="UserProfileBtn_Clicked"/>
